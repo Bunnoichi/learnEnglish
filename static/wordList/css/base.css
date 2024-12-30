@@ -1,0 +1,35 @@
+body{
+   min-height: 100vh;
+   display: flex;
+   flex-direction: column;
+}
+h1{
+   height: 70px;
+   text-align: center;
+   background-color: #888;
+   color: #fff;
+}
+div{
+   flex: 1;
+   background-color: #eee;
+   text-align: center;
+   margin-top: 10px;
+}
+
+.box_word {
+   margin: 2em 0;
+   background: #dcefff;
+}
+.box_word .box_word_title {
+   font-size: 1.2em;
+   background: #5fb3f5;
+   padding: 4px;
+   text-align: center;
+   color: #FFF;
+   font-weight: bold;
+   letter-spacing: 0.05em;
+}
+.box_word p {
+   padding: 15px 20px;
+   margin: 0;
+}

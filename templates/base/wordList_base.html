@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ja">
+   <head>
+      <meta charset="utf-8">
+      <title>単語帳</title>
+      {% load static %}
+      <link rel="stylesheet" href="{% static 'wordList/css/base.css' %}">
+   </head>
+   <body>
+      <h1><a href="{% url 'wordList:index' %}">単語帳</a></h1>
+      {% block body %}
+      {% endblock %}
+   </body>
+</html>

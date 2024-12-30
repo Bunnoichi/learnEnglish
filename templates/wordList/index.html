@@ -1,0 +1,5 @@
+{% extends "base/wordList_base.html" %}
+{% block body %}
+<a href="{% url 'wordList:card_list' %}">単語一覧</a>
+<a href="{% url 'wordList:card_create' %}">単語登録</a>
+{% endblock %}

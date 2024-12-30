@@ -1,0 +1,10 @@
+{% extends "base/wordList_base.html" %}
+{% block body %}
+<h2>単語を編集する</h2>
+<form action="" method="POST">
+   {% csrf_token %}
+   {{ form.as_p }}
+   <button type="submit" name="post">更新</button>
+   <button type="submit" name="delete">削除</button>
+</form>
+{% endblock %}
