@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from .models import Card
 from .forms import CardForm
+from .wordsearch import WordSearch
 
 class IndexView(View):
    def get(self, request):
@@ -11,13 +12,23 @@ class CardCreateView(View):
    def get(self, request):
       form = CardForm()
       return render(request, "wordList/card_form.html", {"form": form})
-   
+       
    def post(self, request):
       form = CardForm(request.POST)
-      if form.is_valid():
-         form.save()
-         return render(request, "wordList/card_form.html", {"form": form})
-      return render(request, "wordList/card_form.html", {"form": form})
+      if "create" in request.POST:
+         if form.is_valid():
+            form.save()
+         return render(request, "wordList/card_form.html", {"form": CardForm(None)})
+      elif "search" in request.POST:
+         form = CardForm(request.POST)
+         # found_meaning = form.fields['word']
+         # found_meaning = request.POST['word']
+         return render(
+            request, 
+            "wordList/card_form.html", 
+            {"form": form, 
+             "foundmeaning": WordSearch().word_search(request.POST['word'])
+             })
 
 class CardListView(View):
    def get(self, request):
