@@ -6,12 +6,14 @@
    <div class="form">
       {{ form.as_p }}
    </div>
-   <div class="found_meaning">
-      {{ foundmeaning }}
+   <div>
+      <p id="found_meaning">{{ foundmeaning }}</p>
    </div>
    <div class="button">
-      <button type="submit" name="create">登録</button>
+      <button type="submit" name="create">登録</button><br>
       <button type="submit" name="search">検索</button>
    </div>
 </form>
+<button name="refer" onclick="reflect_meaning()">反映</button>
+
 {% endblock %}
