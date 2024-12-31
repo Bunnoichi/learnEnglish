@@ -3,7 +3,15 @@
 <h2>単語を登録する</h2>
 <form action="" method="POST">
    {% csrf_token %}
-   {{ form.as_p }}
-   <button type="submit">登録</button>
+   <div class="form">
+      {{ form.as_p }}
+   </div>
+   <div class="found_meaning">
+      {{ foundmeaning }}
+   </div>
+   <div class="button">
+      <button type="submit" name="create">登録</button>
+      <button type="submit" name="search">検索</button>
+   </div>
 </form>
 {% endblock %}
