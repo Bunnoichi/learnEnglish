@@ -53,9 +53,13 @@ class CardUpdateView(View):
          card.delete()
          return redirect('wordList:card_list')
 
-
+class LessonSessionView(View):
+   def get(self, request):
+      card = Card.objects.order_by('?')[0]
+      return render(request, "wordList/lesson_session.html", {"form": card})
 
 index = IndexView.as_view()
 card_create = CardCreateView.as_view()
 card_list = CardListView.as_view()
 card_update = CardUpdateView.as_view()
+lesson_session = LessonSessionView.as_view()

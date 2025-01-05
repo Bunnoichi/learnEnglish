@@ -1,0 +1,21 @@
+{% extends "base/wordList_base.html" %}
+{% block body %}
+
+<h2>単語を勉強する</h2>
+
+
+<form action="" method="POST">
+   {% csrf_token %}
+   <div>
+      <h4>{{ form.word }}</h4>
+      <h5>{{ form.meaning }}</h5>
+      <label name="refer" onclick="reflect_meaning()">反映</button>
+   </div>
+   <div class="button">
+      <button type="submit" name="correct">OK</button><br>
+      <button type="submit" name="incorecct">NG</button>
+   </div>
+</form>
+
+
+{% endblock %}
