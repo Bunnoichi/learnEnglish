@@ -3,13 +3,23 @@
 
 <ul>
    {% for card in card_list %}
-      <div class="box_word">
-         <div class="box_word_title">{{ card.word }}</div>
-         <p>{{ card.meaning }}</p>
-         {{ card.id }}: {{ card.created_at }}<br>
-         {{ card.note }}<br>
-         <a href="{% url 'wordList:card_update' card.id %}">編集</a>
+   <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">{{ card.word }}</h5>
+        <h5 class="card-text">{{ card.meaning }}</p>
       </div>
+      <ul class="list-group list-group-flush">
+         {% if card.note %}
+            <li class="list-group-item">{{ card.note }}</li>
+         {% endif %}
+         <li class="list-group-item" style="color: grey;">{{ card.created_at }}<br>{{ card.id }}</li>
+      </ul>
+      <div class="card-body">
+        <a href="{% url 'wordList:card_update' card.id %}" class="card-link">Edit.</a>
+        <a href="#" class="card-link">Another link</a>
+      </div>
+    </div>
+
    {% empty %}
       <div>1つもありません</div>
    {% endfor %}
