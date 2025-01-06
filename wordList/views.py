@@ -15,6 +15,8 @@ class CardCreateView(View):
        
    def post(self, request):
       form = CardForm(request.POST)
+      print(request.POST)
+      print(type(request))
       if "create" in request.POST:
          if form.is_valid():
             form.save()
