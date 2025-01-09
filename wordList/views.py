@@ -56,7 +56,22 @@ class CardUpdateView(View):
 class LessonSessionView(View):
    def get(self, request):
       card = Card.objects.order_by('?')[0]
-      return render(request, "wordList/lesson_session.html", {"form": card})
+      # form = CardForm(instance=card)
+      print(card)
+      return render(request, "wordList/lesson_session.html", {"card": card })
+   
+   def post(self, request):
+      card = get_object_or_404(Card, id=request.POST['id'])
+      form = CardForm(request.POST, instance=card)
+      card = Card.objects.order_by('?')[0]
+      print(request.POST['id'])
+
+      if "correct" in request.POST:
+         print(request.POST['id'] + 'clear')
+         return render(request, "wordList/lesson_session.html", {"card": card })
+      elif "incorrect" in request.POST:
+         print(request.POST['id'] + 'not clear')
+         return render(request, "wordList/lesson_session.html", {"card": card })
 
 index = IndexView.as_view()
 card_create = CardCreateView.as_view()

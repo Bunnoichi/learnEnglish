@@ -7,13 +7,14 @@
 <form action="" method="POST">
    {% csrf_token %}
    <div>
-      <h4>{{ form.word }}</h4>
-      <h5>{{ form.meaning }}</h5>
-      <label name="refer" onclick="reflect_meaning()">反映</button>
+      <h4>{{ card.word }}</h4>
+      <h5>{{ card.meaning }}</h5>
+      <!-- <label name="refer" onclick="">反映</button> -->
+      <input type="text" name="id" value="{{ card.id }}">
    </div>
    <div class="button">
       <button type="submit" name="correct">OK</button><br>
-      <button type="submit" name="incorecct">NG</button>
+      <button type="submit" name="incorrect">NG</button>
    </div>
 </form>
 
