@@ -8,5 +8,6 @@ urlpatterns = [
    path("card/create/", views.card_create, name="card_create"),
    path("card/list/", views.card_list, name="card_list"),
    path("card/<uuid:id>/update", views.card_update, name="card_update"),
+   path("lesson_session/", views.lesson_session, name="lesson_session"),
 
 ]

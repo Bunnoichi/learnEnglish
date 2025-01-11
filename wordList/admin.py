@@ -5,4 +5,4 @@ from .models import Card
 
 @admin.register(Card)
 class CardAdmin(admin.ModelAdmin):
-   readonly_fields = ['id', 'word', 'meaning', 'note', 'created_at']
+   readonly_fields = ['id', 'word', 'meaning', 'note', 'count_appear', 'count_incorrect', 'created_at']
